@@ -1,8 +1,8 @@
 # Core Pkgs
-import streamlit as st 
+import streamlit as st
 import cv2
 from PIL import Image,ImageEnhance
-import numpy as np 
+import numpy as np
 import os
 
 @st.cache
@@ -24,7 +24,7 @@ def detect_faces(our_image):
 	# Draw rectangle around the faces
 	for (x, y, w, h) in faces:
 				 cv2.rectangle(img, (x, y), (x+w, y+h), (255, 0, 0), 2)
-	return img,faces 
+	return img,faces
 
 
 def detect_eyes(our_image):
@@ -72,8 +72,8 @@ def cannize_image(our_image):
 def main():
 	"""Face Detection App"""
 
-	st.title("Face Detection App")
-	st.text("Build with Streamlit and OpenCV")
+	st.title("Facewiz: Face Detection & Image Cartoonizer App")
+	st.text("Detect faces, eyes, smiles in any image files. Cartoonize your favourite image now.")
 
 	activities = ["Detection","About"]
 	choice = st.sidebar.selectbox("Select Activty",activities)
@@ -115,7 +115,7 @@ def main():
 				blur_img = cv2.GaussianBlur(img,(11,11),blur_rate)
 				st.image(blur_img)
 			elif enhance_type == 'Original':
-				
+
 				st.image(our_image,width=300)
 			else:
 				st.image(our_image,width=300)
@@ -152,12 +152,11 @@ def main():
 
 
 	elif choice == 'About':
-		st.subheader("About Face Detection App")
-		st.markdown("Built with Streamlit by [JCharisTech](https://www.jcharistech.com/)")
-		st.text("Jesse E.Agbe(JCharis)")
-		st.success("Jesus Saves @JCharisTech")
+		st.subheader("About Facewiz")
+		st.markdown("Built with Streamlit by [LekanAkin](https://github.com/lekanakin)")
+		st.success("This is a Computer Vision project for detecting faces, eyes, smiles in image files. The app allows users to cartonize any image file.")
 
 
 
 if __name__ == '__main__':
-		main()	
+		main()
