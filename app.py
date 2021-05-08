@@ -149,8 +149,6 @@ def main():
 				st.image(result_canny)
 
 
-
-
 	elif choice == 'About':
 		st.subheader("About Facewiz")
 		st.markdown("Built with Streamlit by [LekanAkin](https://github.com/lekanakin)")
